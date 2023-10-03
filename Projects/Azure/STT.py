@@ -4,7 +4,7 @@ import azure.cognitiveservices.speech as speechsdk
 import pyaudio
 
 # Replace with your Azure Speech Service subscription key and service region
-subscription_key = "7635478b91fe482185a9cc18c016b43f"
+
 service_region = "centralindia"  # e.g., "eastus"service_region
 
 def recognize_speech_from_microphone():
@@ -43,7 +43,7 @@ if __name__ == "__main__":
 # import azure.cognitiveservices.speech as speechsdk
 
 # # Replace with your Azure Cognitive Services subscription key and service region
-# subscription_key = "7635478b91fe482185a9cc18c016b43f"
+
 # service_region = "centralindia"  # e.g., "eastus"
 
 # def speech_to_text_with_language_detection():
@@ -81,7 +81,7 @@ if __name__ == "__main__":
 # import azure.cognitiveservices.speech as speechsdk
 
 # # Replace with your Azure Cognitive Services subscription key and service region
-# subscription_key = "29118e79c51e417684049518709de517"
+
 # service_region = "centralindia"  # e.g., "eastus"
 
 # def speech_to_text_with_language_detection():

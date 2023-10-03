@@ -1,7 +1,7 @@
 import azure.cognitiveservices.speech as speechsdk
 
 # Replace with your Azure Text to Speech subscription key and service region
-subscription_key = "7635478b91fe482185a9cc18c016b43f"
+
 service_region = "centralindia"
 
 def text_to_speech_and_speak():
