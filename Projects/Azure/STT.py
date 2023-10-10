@@ -1,11 +1,11 @@
 import wave
-
 import azure.cognitiveservices.speech as speechsdk
 import pyaudio
 
 # Replace with your Azure Speech Service subscription key and service region
 
 service_region = "centralindia"  # e.g., "eastus"service_region
+subscription_key = '7635478b91fe482185a9cc18c016b43f'
 
 def recognize_speech_from_microphone():
     speech_config = speechsdk.SpeechConfig(subscription=subscription_key, region=service_region)
