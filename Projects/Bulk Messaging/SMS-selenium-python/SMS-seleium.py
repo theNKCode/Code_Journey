@@ -1,14 +1,19 @@
+from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.chrome.service import Service
-from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
 import openpyxl
 import time
 import sys
-# check here for update
+
+# Specify the path to the Brave browser executable on your system.
+brave_executable_path = 'C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe'
+
+# Initialize the Brave browser driver with the specified executable path.
+options = webdriver.ChromeOptions()
+options.binary_location = brave_executable_path
+driver = webdriver.Chrome(options=options)
+
 filex = openpyxl.load_workbook("D:\Code_Journey\Projects\Bulk Messaging\SMS-selenium-python\contact.xlsx")
 sh = filex["Sheet1"]
 
@@ -17,26 +22,29 @@ print("SMS sending program...")
 print("*************************************************************")
 print("\n")
 
-print("Please enter the limit from excel file :")
-st = int(input("1. Start point"))
-ed = int(input("2. End point"))
+print("Please enter the limit from the excel file:")
+st = int(input("1. Start point: "))
+ed = int(input("2. End point: "))
 
-chrome_driver_path = 'D:\Code_Journey\Projects\Bulk Messaging\SMS-selenium-python\chromedriver_win32\chromedriver.exe'
-driver = webdriver.Chrome()
 driver.get('https://messages.google.com/web/conversations')
 
 time.sleep(8)
 print("Successfully scanned.....")
-WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '/html/body/mw-app/mw-bootstrap/div/main/mw-main-container/div/mw-main-nav/div/mw-fab-link/a'))).click()
+time.sleep(8)
+
+# Use WebDriverWait for better element handling
+fab_link = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '/html/body/mw-app/mw-bootstrap/div/main/mw-main-container/div/mw-main-nav/div/mw-fab-link/a/span[4]')))
+fab_link.click()
 time.sleep(3)
+
 driver.find_element_by_xpath('/html/body/mw-app/mw-bootstrap/div/main/mw-main-container/div/mw-main-nav/div/mw-fab-link/a').click()
 time.sleep(8)
 WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '/html/body/mw-app/mw-bootstrap/div/main/mw-main-container/div/mw-main-nav/div/mw-fab-link/a'))).click()
 driver.find_element_by_xpath('/html/body/mw-app/mw-bootstrap/div/main/mw-main-container/div/mw-new-conversation-container/div/mw-new-conversation-start-group-button/button').click()
 time.sleep(5)
 count = 0
-while(st<=ed):
 
+while(st<=ed):
     cl = sh.cell(st,1)
     element = driver.find_element_by_xpath('//*[@id="mat-chip-list-0"]/div/input')
     element.send_keys(cl.value)
@@ -57,4 +65,4 @@ driver.find_element_by_xpath('/html/body/mw-app/mw-bootstrap/div/main/mw-main-co
 time.sleep(2)
 print(f"{count} messages sent already..")
 
-sys.exit() 
+sys.exit()
