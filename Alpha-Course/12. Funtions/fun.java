@@ -84,6 +84,7 @@ public class fun {
 
     // 12.10
     public static int multi(int a, int b) {
+        
         return a * b;
     }
 
