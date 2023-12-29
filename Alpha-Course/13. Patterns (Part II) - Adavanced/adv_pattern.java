@@ -40,6 +40,7 @@ public class adv_pattern {
     
     //MyLogic
     // public static void inverted_rotated_half_pyramid_with_no(int no_of_lines) {
+    //     System.out.println("Inverted Half Pyramid with no.");
     //     for(int i=1;i<=no_of_lines;i++){
     //         for(int j=1; j<=no_of_lines; j++){
     //             if(i<=no_of_lines-j+1) System.out.print(j+" ");
@@ -51,6 +52,7 @@ public class adv_pattern {
 
     // Shraddha mam Logic
     public static void inverted_rotated_half_pyramid_with_no(int no_of_lines) {
+        System.out.println("Inverted Half Pyramid with no.");
         for(int i=1;i<=no_of_lines;i++){
             for(int j=1; j<=no_of_lines-i+1; j++){
                 System.out.print(j+" ");
@@ -59,11 +61,25 @@ public class adv_pattern {
         }
     }
 
+    public static void floyds_triangle(int no_of_lines){
+        System.out.println("Floyd's Triangle");
+        int counter =1;
+        for(int i=1; i<=no_of_lines; i++){
+            for(int j=1; j<=i; j++){
+                System.out.print(counter+" ");
+                counter++;
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) { 
-        hollow_rectangle(4,5);
+        hollow_rectangle(4,5);System.out.println();
 
-        inverted_rotated_half_pyramid(4,4);
+        inverted_rotated_half_pyramid(4,4);System.out.println();
 
-        inverted_rotated_half_pyramid_with_no(5);
+        inverted_rotated_half_pyramid_with_no(5);System.out.println();
+
+        floyds_triangle(5);System.out.println();
     }
 }
