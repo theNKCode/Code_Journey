@@ -9,6 +9,7 @@ public class adv_pattern {
             System.out.println();
         }
     }
+     
     //MyLogic
     // public static void inverted_rotated_half_pyramid(int totRows, int totCols){
     //     System.out.println("Inverted & Rotated Half Pyramid");
@@ -20,25 +21,49 @@ public class adv_pattern {
     //         System.out.println();
     //     }
     // }
-    
+
     // Shraddha Mam Logic
     public static void inverted_rotated_half_pyramid(int totRows, int totCols){
         System.out.println("Inverted & Rotated Half Pyramid");
         for(int i=1; i<=totRows;i++){
             //Spaces Print
             for(int j=1; j<=totRows-i;j++){
-                System.out.print("   ");
+                System.out.print("  ");
             }
             //Stars Print
-            for(int j=1; j<=i;j++){
+            for(int j=1; j<=i;j++){                          
                 System.out.print("* ");
             }            
             System.out.println();
         }
-    }   
+    }
+    
+    //MyLogic
+    // public static void inverted_rotated_half_pyramid_with_no(int no_of_lines) {
+    //     for(int i=1;i<=no_of_lines;i++){
+    //         for(int j=1; j<=no_of_lines; j++){
+    //             if(i<=no_of_lines-j+1) System.out.print(j+" ");
+    //             else System.out.print(" ");
+    //         }
+    //         System.out.println();
+    //     }
+    // }
+
+    // Shraddha mam Logic
+    public static void inverted_rotated_half_pyramid_with_no(int no_of_lines) {
+        for(int i=1;i<=no_of_lines;i++){
+            for(int j=1; j<=no_of_lines-i+1; j++){
+                System.out.print(j+" ");
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) { 
         hollow_rectangle(4,5);
 
         inverted_rotated_half_pyramid(4,4);
+
+        inverted_rotated_half_pyramid_with_no(5);
     }
 }
