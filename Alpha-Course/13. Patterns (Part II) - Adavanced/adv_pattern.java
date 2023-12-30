@@ -109,33 +109,58 @@ public class adv_pattern {
             System.out.println();
         }
     }
-    //Same Approach
+
+    // Same Approach
     public static void butterfly_pattern(int n) {
         System.out.println("Butterfly_pattern :-");
         for (int i = 1; i <= n; i++) {
+            // stars = i
             for (int j = 1; j <= i; j++) {
                 System.out.print("* ");
             }
+            // spaces = 2*(n-i)
             for (int j = 1; j <= 2 * (n - i); j++) {
                 System.out.print("  ");
             }
+            // stars = i
             for (int j = 1; j <= i; j++) {
                 System.out.print("* ");
             }
             System.out.println();
         }
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= n - i + 1; j++) {
+        for (int i = n; i >= 1; i--) {
+            // stars = i
+            for (int j = 1; j <= i; j++) {
                 System.out.print("* ");
             }
-            for (int j = 1; j <= 2 * (i - 1); j++) {
+            // spaces = 2*(n-i)
+            for (int j = 1; j <= 2 * (n - i); j++) {
                 System.out.print("  ");
             }
-            for (int j = 1; j <= n - i + 1; j++) {
+            // stars = i
+            for (int j = 1; j <= i; j++) {
                 System.out.print("* ");
             }
             System.out.println();
         }
+
+        // Alternate Second Half :
+
+        // for (int i = 1; i <= n; i++) {
+        // //stars = n-i+1
+        // for (int j = 1; j <= n - i + 1; j++) {
+        // System.out.print("* ");
+        // }
+        // //spaces = 2 * (i-1)
+        // for (int j = 1; j <= 2 * (i - 1); j++) {
+        // System.out.print(" ");
+        // }
+        // //stars = n-i+1
+        // for (int j = 1; j <= n - i + 1; j++) {
+        // System.out.print("* ");
+        // }
+        // System.out.println();
+        // }
     }
 
     public static void main(String[] args) {
