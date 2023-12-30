@@ -217,5 +217,7 @@ public class adv_pattern {
 
         hollow_rhombus(5);
         System.out.println();
+
+         
     }
 }
