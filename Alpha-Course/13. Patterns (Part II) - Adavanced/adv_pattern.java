@@ -164,11 +164,31 @@ public class adv_pattern {
     }
 
     public static void solid_rhombus(int n) {
+        System.out.println("Solid Rhombus :- ");
         for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= n - i ; j++)
+            for (int j = 1; j <= n - i; j++)
                 System.out.print("  ");
             for (int j = 1; j <= n; j++)
                 System.out.print("* ");
+            System.out.println();
+        }
+    }
+
+    public static void hollow_rhombus(int n) {
+        System.out.println("Hollow Rhombus :- ");
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n - i; j++)
+                System.out.print("  ");
+            for (int j = 1; j <= n; j++) {
+                if (i == 1 || i == n)
+                    System.out.print("* ");
+                else {
+                    if (j == 1 || j == n)
+                        System.out.print("* ");
+                    else
+                        System.out.print("  ");
+                }
+            }
             System.out.println();
         }
     }
@@ -193,6 +213,9 @@ public class adv_pattern {
         System.out.println();
 
         solid_rhombus(5);
+        System.out.println();
+
+        hollow_rhombus(5);
         System.out.println();
     }
 }
