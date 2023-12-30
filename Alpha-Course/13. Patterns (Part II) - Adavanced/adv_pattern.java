@@ -75,34 +75,64 @@ public class adv_pattern {
         }
     }
 
-    //My Approach
+    // My Approach
     // public static void zero_one_triangle(int no_of_lines) {
-    //     System.out.println("0 - 1 Triangle :-");
-    //     int first = 1;
-    //     for (int i = 1; i <= no_of_lines; i++) {
-    //         int ct = first;
-    //         for (int j = 1; j <= i; j++) {
-    //             System.out.print(ct + " ");
-    //             if (ct == 1)
-    //                 ct = 0;
-    //             else
-    //                 ct = 1;
-    //         }
-    //         if (first == 1)
-    //             first = 0;
-    //         else
-    //             first = 1;
-    //         System.out.println();
-    //     }
+    // System.out.println("0 - 1 Triangle :-");
+    // int first = 1;
+    // for (int i = 1; i <= no_of_lines; i++) {
+    // int ct = first;
+    // for (int j = 1; j <= i; j++) {
+    // System.out.print(ct + " ");
+    // if (ct == 1)
+    // ct = 0;
+    // else
+    // ct = 1;
+    // }
+    // if (first == 1)
+    // first = 0;
+    // else
+    // first = 1;
+    // System.out.println();
+    // }
     // }
 
-    //Mam Approach
-    public static void zero_one_triangle(int no_of_lines ) {
+    // Mam Approach
+    public static void zero_one_triangle(int no_of_lines) {
         System.out.println("0 - 1 Triangles :-");
         for (int i = 1; i <= no_of_lines; i++) {
             for (int j = 1; j <= i; j++) {
-                if((i+j)%2==0) System.out.print("1 "); //(row + column) is even -> print 1
-                else System.out.print("0 "); //is odd -> print 0
+                if ((i + j) % 2 == 0)
+                    System.out.print("1 "); // (row + column) is even -> print 1
+                else
+                    System.out.print("0 "); // is odd -> print 0
+            }
+            System.out.println();
+        }
+    }
+    //Same Approach
+    public static void butterfly_pattern(int n) {
+        System.out.println("Butterfly_pattern :-");
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            for (int j = 1; j <= 2 * (n - i); j++) {
+                System.out.print("  ");
+            }
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n - i + 1; j++) {
+                System.out.print("* ");
+            }
+            for (int j = 1; j <= 2 * (i - 1); j++) {
+                System.out.print("  ");
+            }
+            for (int j = 1; j <= n - i + 1; j++) {
+                System.out.print("* ");
             }
             System.out.println();
         }
@@ -122,5 +152,8 @@ public class adv_pattern {
         System.out.println();
 
         zero_one_triangle(5);
+        System.out.println();
+
+        butterfly_pattern(5);
     }
 }
