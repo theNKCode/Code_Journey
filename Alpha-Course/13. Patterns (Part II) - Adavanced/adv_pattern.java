@@ -193,6 +193,49 @@ public class adv_pattern {
         }
     }
 
+    // My Logic
+
+    // public static void diamond_pattern(int n) {
+    // System.out.println("Diamond Pattern :-");
+    // for (int i = 1; i <= n; i++) {
+    // for (int j = 1; j <= n - i; j++)
+    // System.out.print(" ");
+    // for (int j = 1; j <= i; j++)
+    // System.out.print("* ");
+    // for (int j = 1; j < i; j++)
+    // System.out.print("* ");
+    // System.out.println();
+    // }
+    // for (int i = n; i >=1; i--) {
+    // for (int j = 1; j <= n - i; j++)
+    // System.out.print(" ");
+    // for (int j = 1; j <= i; j++)
+    // System.out.print("* ");
+    // for (int j = 1; j < i; j++)
+    // System.out.print("* ");
+    // System.out.println();
+    // }
+    // }
+
+    // Mam Logic
+    public static void diamond_pattern(int n) {
+        System.out.println("Diamond Pattern :-");
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n - i; j++)
+                System.out.print("  ");
+            for (int j = 1; j <= (2 * i - 1); j++)
+                System.out.print("* ");
+            System.out.println();
+        }
+        for (int i = n; i >= 1; i--) {
+            for (int j = 1; j <= n - i; j++)
+                System.out.print("  ");
+            for (int j = 1; j <= (2 * i - 1); j++)
+                System.out.print("* ");
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
         hollow_rectangle(4, 5);
         System.out.println();
@@ -218,6 +261,7 @@ public class adv_pattern {
         hollow_rhombus(5);
         System.out.println();
 
-         
+        diamond_pattern(4);
+        System.out.println();
     }
 }
