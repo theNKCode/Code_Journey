@@ -19,6 +19,24 @@ public class ArrayCC {
         return -1;
     }
 
+    // 14.6
+    public static void largest_find(int lar[]) {
+        System.out.print("The array : ");
+        int largest = Integer.MIN_VALUE;
+        int smallest = Integer.MAX_VALUE;
+        for (int i = 0; i < lar.length; i++) {
+            System.out.print(lar[i] + " ");
+            if (lar[i] > largest)
+                largest = lar[i];
+            if (lar[i] < smallest)
+                smallest = lar[i];
+        }
+        System.out.println("\nThe largest among above array is : " + largest);
+        System.out.println("\nThe smallest among above array is : " + smallest);
+    }
+
+    
+
     public static void main(String[] args) {
         // 14.1
         int score[] = new int[50];
@@ -76,6 +94,16 @@ public class ArrayCC {
         int index = linear_search(no, key);
         System.out.println((index == -1) ? "Key not Exist" : "Found key at index " + index);
 
-
+        // 14.6 - Largest No
+        int lar[] = new int[50];
+        System.out.println("Enter Input in Array (-1 to stop)");
+        for (int i = 0; i < lar.length; i++) {
+            lar[i] = sc.nextInt();
+            if (lar[i] == -1) {
+                lar[i] = 0;
+                break;
+            }
+        }
+        largest_find(lar);
     }
 }
