@@ -35,7 +35,30 @@ public class ArrayCC {
         System.out.println("\nThe smallest among above array is : " + smallest);
     }
 
-    
+    // 14.7 - Binary Search - TC = O(logn)
+    public static int binary_search(int bin[], int keybin, int left, int right) {
+        int mid = left + (right - left) / 2;
+        if (bin[mid] == keybin)
+            return mid;
+        if (bin[mid] > keybin)
+            return binary_search(bin, keybin, left, mid - 1);
+        if (bin[mid] < keybin)
+            return binary_search(bin, keybin, mid + 1, right);
+        return -1;
+    }
+    // Mam Approach - Binary Search
+    // public static int binary_search(int bin[], int keybin, int start, int end) {
+    // while (start <= end) {
+    // int mid = start + (end - start) / 2;
+    // if (bin[mid] == keybin)
+    // return mid;
+    // if (bin[mid] > keybin)
+    // end = mid-1;
+    // if (bin[mid] < keybin)
+    // start = mid+1;
+    // }
+    // return -1;
+    // }
 
     public static void main(String[] args) {
         // 14.1
@@ -105,5 +128,11 @@ public class ArrayCC {
             }
         }
         largest_find(lar);
+
+        // 14.7 - Binary Search
+        int bin[] = { 2, 4, 6, 8, 10, 12, 14, 16 }; // Prerequisite- In Increasing/ Decreasing Order
+        int keybin = 14, left = 0, right = bin.length - 1;
+        int index1 = binary_search(bin, keybin, left, right);
+        System.out.println(index1 == -1 ? "Key not Found" : "Key Found at index " + index1);
     }
 }
