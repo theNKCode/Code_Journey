@@ -149,6 +149,27 @@ public class ArrayCC {
         System.out.println("Maximum sum is " + max);
     }
 
+    public static void maxsubarraysum_kadane_algo(int nums[]) {
+        System.out.println("14.14 Max Subarray sum - (Kadane's Algorithm)");
+        int currSum = 0, maxSum = Integer.MIN_VALUE;
+        int ct = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] < 0)
+                ct++;
+            currSum += nums[i];
+            currSum = currSum < 0 ? currSum = 0 : currSum;
+            maxSum = Math.max(currSum, maxSum);
+        }
+        // Special Case if all element of array are negative
+        if (ct == nums.length) {
+            maxSum = Integer.MIN_VALUE;
+            for (int i = 0; i < nums.length; i++) {
+                maxSum = maxSum < nums[i] ? maxSum = nums[i] : maxSum;
+            }
+        }
+        System.out.println("Maximum of Subarray : " + maxSum);
+    }
+
     public static void main(String[] args) {
         // 14.1
         int score[] = new int[50];
@@ -243,10 +264,13 @@ public class ArrayCC {
         printsubarrayssum(nums);
 
         // 14.12 Max Subarray sum - (Brute Force)
-        int subarray[] = { 1, -2, 6, -1, 3 };
-        printsubarrayssum(subarray);
+        int max_subarr[] = { -2, -3, -4, -2, -2, -5, -5, -3 };
+        printsubarrayssum(max_subarr);
 
-        //14.13 Max Subarray sum - (Prefix Sum Approach)
-        maxsubarraysum(subarray);
+        // 14.13 Max Subarray sum - (Prefix Sum Approach)
+        maxsubarraysum(max_subarr); // TC - O(n^2) and SC - O(n)
+
+        // 14.14 Max Subarray sum - (Kadane's Algorithm)
+        maxsubarraysum_kadane_algo(max_subarr); // TC - O(n) and SC = O(1)
     }
 }
