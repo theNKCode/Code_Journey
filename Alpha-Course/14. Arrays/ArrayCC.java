@@ -60,6 +60,95 @@ public class ArrayCC {
     // return -1;
     // }
 
+    // 14.9 - Reverse an array
+    public static void reverse(int rev[]) {
+        int start = 0, end = rev.length - 1;
+        while (start < end) {
+            int temp = rev[start];
+            rev[start] = rev[end];
+            rev[end] = temp;
+            start++;
+            end--;
+        }
+    }
+
+    // 14.10 - Pairs in Arrays - O(n^2)
+    public static void printpairs(int nums[]) {
+        int tp = 0;
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                System.out.print("(" + nums[i] + "," + nums[j] + ") ");
+                tp++;
+            }
+            System.out.println();
+        }
+        System.out.println("Total pairs = " + tp);
+    }
+
+    // 14.11 - Print Subarrays - a continuous part of array
+    public static void printsubarrays(int nums[]) {
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                for (int k = i; k <= j; k++) {
+                    System.out.print(nums[k] + " ");
+                }
+                System.out.print(" | ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    // H.W. 14.12 - Find sum of all subarray also print max and min sum of subarray
+    // - O(n^3)
+    public static void printsubarrayssum(int nums[]) {
+        int n = nums.length;
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                int sum = 0;
+                for (int k = i; k <= j; k++) {
+                    System.out.print(nums[k] + " ");
+                    sum += nums[k];
+                    if (sum > max)
+                        max = sum;
+                    if (sum < min)
+                        min = sum;
+                }
+                System.out.print(" |  Sum is : " + sum + " |  ");
+            }
+            System.out.println();
+        }
+        System.out.println("Maximum sum = " + max);
+        System.out.println("Minimum sum = " + min);
+    }
+
+    // 14.13 - Max Subarray sum (Prefix Method)
+    public static void maxsubarraysum(int nums[]) {
+        System.out.println("\n14.13 Max Subarray sum - (Prefix Sum Approach)");
+        int n = nums.length;
+        int prefix_arr[] = new int[n];
+        prefix_arr[0] = nums[0];
+        for (int i = 1; i < n; i++) {
+            prefix_arr[i] = prefix_arr[i - 1] + nums[i];
+        }
+        int max = Integer.MIN_VALUE;
+        int currSum = 0;
+        for (int i = 0; i < n; i++) {
+            int start = i;
+            for (int j = i; j < n; j++) {
+                int end = j;
+                currSum = start == 0 ? prefix_arr[end] : prefix_arr[end] - prefix_arr[start - 1];
+                if (currSum > max)
+                    max = currSum;
+            }
+        }
+        System.out.println("Maximum sum is " + max);
+    }
+
     public static void main(String[] args) {
         // 14.1
         int score[] = new int[50];
@@ -134,5 +223,30 @@ public class ArrayCC {
         int keybin = 14, left = 0, right = bin.length - 1;
         int index1 = binary_search(bin, keybin, left, right);
         System.out.println(index1 == -1 ? "Key not Found" : "Key Found at index " + index1);
+
+        // 14.9 - Reverse an Array
+        int rev[] = { 2, 4, 6, 8, 10, 11, 14, 15, 16 };
+        reverse(rev);
+        for (int i = 0; i < rev.length; i++) {
+            System.out.print(rev[i] + " ");
+        }
+        System.out.println();
+
+        // 14.10 - Pairs in Array
+        int nums[] = { 2, 4, 6, 8, 10 };
+        printpairs(nums);
+
+        // 14.11 - Print Subarray
+        printsubarrays(nums);
+
+        // H.W. 14.12 - Subarray sum and max / min sum print
+        printsubarrayssum(nums);
+
+        // 14.12 Max Subarray sum - (Brute Force)
+        int subarray[] = { 1, -2, 6, -1, 3 };
+        printsubarrayssum(subarray);
+
+        //14.13 Max Subarray sum - (Prefix Sum Approach)
+        maxsubarraysum(subarray);
     }
 }
