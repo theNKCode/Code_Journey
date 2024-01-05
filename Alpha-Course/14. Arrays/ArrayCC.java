@@ -149,6 +149,7 @@ public class ArrayCC {
         System.out.println("Maximum sum is " + max);
     }
 
+    // Another Approach
     // Special Case Included - When all array elements are negative and others
     public static int maxSubArray(int[] nums) {
         System.out.println("\n14.13 Max Subarray sum - (Prefix Sum Approach) | (Include all edge cases)");
@@ -178,6 +179,7 @@ public class ArrayCC {
         return maxSum;
     }
 
+    // Best Approach
     public static void maxsubarraysum_kadane_algo(int nums[]) {
         System.out.println("14.14 Max Subarray sum - (Kadane's Algorithm)");
         int currSum = 0, maxSum = Integer.MIN_VALUE;
@@ -197,6 +199,23 @@ public class ArrayCC {
             }
         }
         System.out.println("Maximum of Subarray : " + maxSum);
+    }
+
+    // 14.15 Trapping Rainwater
+    public static void trapping_rainwater(int height[]) {
+        // My Approach - Wrong Approach
+        // int big_index = 0, other_big_index = 0, trap = 0, sub = 0, water=0;
+        // for (int i = 1; i < height.length; i++) {
+        //     if (height[i] > height[i - 1]) {
+        //         other_big_index = i;
+        //         water = (Math.abs(other_big_index - big_index) * Math.max(big_index, other_big_index));
+        //         trap = trap + sub - (water < 0 ? 0 : water) ;
+        //         sub = 0;
+        //         big_index = i;
+        //     } else
+        //         sub += height[i];
+        // }
+        // System.out.println("Trapped Water : "+trap);
     }
 
     public static void main(String[] args) {
@@ -302,5 +321,8 @@ public class ArrayCC {
 
         // 14.14 Max Subarray sum - (Kadane's Algorithm)
         maxsubarraysum_kadane_algo(max_subarr); // TC - O(n) and SC = O(1)
+
+        // 14.15 Trapping Rainwater
+        trapping_rainwater(nums);
     }
 }
