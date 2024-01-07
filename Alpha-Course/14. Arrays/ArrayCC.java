@@ -203,19 +203,44 @@ public class ArrayCC {
 
     // 14.15 Trapping Rainwater
     public static void trapping_rainwater(int height[]) {
-        // My Approach - Wrong Approach
+        // My Approach --> Wrong Approach (Find Left(max) and right(max) then
+        // calculate blocks of area in between and subtract it from blocks
+        // given in array in between ledt(max) and right(max))
         // int big_index = 0, other_big_index = 0, trap = 0, sub = 0, water=0;
         // for (int i = 1; i < height.length; i++) {
-        //     if (height[i] > height[i - 1]) {
-        //         other_big_index = i;
-        //         water = (Math.abs(other_big_index - big_index) * Math.max(big_index, other_big_index));
-        //         trap = trap + sub - (water < 0 ? 0 : water) ;
-        //         sub = 0;
-        //         big_index = i;
-        //     } else
-        //         sub += height[i];
+        // if (height[i] > height[i - 1]) {
+        // other_big_index = i;
+        // water = (Math.abs(other_big_index - big_index) * Math.max(big_index,
+        // other_big_index));
+        // trap = trap + sub - (water < 0 ? 0 : water) ;
+        // sub = 0;
+        // big_index = i;
+        // } else
+        // sub += height[i];
         // }
         // System.out.println("Trapped Water : "+trap);
+
+        // Mam Approach - Right Approach
+        int n = height.length;
+        // leftmost max array
+        int leftmax[] = new int[n];
+        leftmax[0] = height[0];
+        for (int i = 1; i < n; i++) {
+            leftmax[i] = Math.max(leftmax[i - 1], height[i]);
+        }
+        // rightmost max array
+        int rightmax[] = new int[n];
+        rightmax[n-1] = height[n-1];
+        for (int i = n-2; i >=0; i--) {
+            rightmax[i] = Math.max(rightmax[i + 1], height[i]);
+        }
+        int width =1;
+        int trapped =0;
+        for(int i=0; i<n;i++){
+            int water_level = Math.min(leftmax[i] , rightmax[i]);
+            trapped += (water_level - height[i])*width;
+        }
+        System.out.println(trapped);
     }
 
     public static void main(String[] args) {
@@ -323,6 +348,7 @@ public class ArrayCC {
         maxsubarraysum_kadane_algo(max_subarr); // TC - O(n) and SC = O(1)
 
         // 14.15 Trapping Rainwater
-        trapping_rainwater(nums);
+        int height_block[] = {4,2,0,6,3,2,5};
+        trapping_rainwater(height_block);
     }
 }
