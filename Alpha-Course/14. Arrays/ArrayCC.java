@@ -243,6 +243,19 @@ public class ArrayCC {
         System.out.println(trapped);
     }
 
+    public static void buy_sell(int prices[]){
+        int buy_price = prices[0], max_profit =0 ;
+        for(int sell_day=1; sell_day< prices.length; sell_day++){
+            if(buy_price > prices[sell_day]){
+                buy_price = prices[sell_day];
+            }
+            else{
+                int profit = prices[sell_day]-buy_price;
+                max_profit = Math.max(profit, max_profit);
+            }
+        }
+        System.out.println("Max_profit : "+max_profit);
+    }
     public static void main(String[] args) {
         // 14.1
         int score[] = new int[50];
@@ -350,5 +363,9 @@ public class ArrayCC {
         // 14.15 Trapping Rainwater
         int height_block[] = {4,2,0,6,3,2,5};
         trapping_rainwater(height_block);
+
+        // 14.16 Best Time to Buy and Sell Stocks
+        int stock_price[] = {7,1,5,3,6,4};
+        buy_sell(stock_price);
     }
 }
