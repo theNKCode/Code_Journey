@@ -1,9 +1,9 @@
-// Caesar Cipher <-- Substitution Technique
+// Affine Cipher <-- Substitution Technique
 // P.T. Letters are replaced by other letters or symbols.
-// The earlier known and simplest method used be Julius Caesar.
-// Replacing each P.T. letter of the alphabet with the letter standing three places further down the alphabet.
-// Algorithm: For each plaintext letter 'p', substitute the ciphertext letter 'C':
-// C = E (p, k) mod 26 = (p + k) mod 26
+// Algorithm: For each plaintext letter 'p', substitute the ciphertext letter 't'
+//  then for each 't', substitute ciphertext letter 'ct':
+// T = E (p, k1) mod 26 = (p + k1) mod 26
+// C = E (t, k2) mod 26 = (t + k2) mod 26
 
 #include <iostream>
 #include <string>
