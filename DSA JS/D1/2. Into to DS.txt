@@ -1,0 +1,6 @@
+What are Data Structure ?
+    - Collection of Data Values
+    - Relationships among them
+    - Functions / Operations that can be Applied on them
+    eg. Array
+
